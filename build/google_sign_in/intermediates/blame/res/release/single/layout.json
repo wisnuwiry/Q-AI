@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_part_time.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_action_tombstone.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_media_action.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_big_media_narrow_custom.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_big_media.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_media.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_action.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_icon_group.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_big_media_narrow.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_media_custom.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_big_media_custom.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_lines_media.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_template_part_chronometer.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/layout/notification_media_cancel_action.xml",
+        "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/layout/notification_media_cancel_action.xml"
+    }
+]

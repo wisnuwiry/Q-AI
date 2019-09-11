@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "209447733037",
+    "firebase_url": "https://k-ai-35c2f.firebaseio.com",
+    "project_id": "k-ai-35c2f",
+    "storage_bucket": "k-ai-35c2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209447733037:android:d9dc60e2af7249494cb5a4",
+        "android_client_info": {
+          "package_name": "com.wisnusaputra.qai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209447733037-87rhu4p062tvlk8dgebj7ns7qbka6tv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wisnusaputra.qai",
+            "certificate_hash": "8dfe3536c393191154198b36b6b198e127a4b8a2"
+          }
+        },
+        {
+          "client_id": "209447733037-iibdu4dut7l56dh87v1t3vfqhssp6k80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wisnusaputra.qai",
+            "certificate_hash": "af14df6233eb15861ce378c2934022c6b73fce6b"
+          }
+        },
+        {
+          "client_id": "209447733037-1p51m0pv005ngjku47qa4ucasgl48tog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGHJCroYqgGodAwvmXhUukmN9B3TcnRr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "209447733037-1p51m0pv005ngjku47qa4ucasgl48tog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
