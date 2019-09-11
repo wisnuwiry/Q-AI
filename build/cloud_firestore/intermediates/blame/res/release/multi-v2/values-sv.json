@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/merged.dir/values-sv/values-sv.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/res/merged/release/values-sv/values-sv.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/values-sv/values.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-sv/values.xml",
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-sv/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/res/merged/release/values-sv/values-sv.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/merged.dir/values-sv/values-sv.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/values-sv/values.xml",
@@ -77,7 +77,7 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-sv/values.xml",
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-sv/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

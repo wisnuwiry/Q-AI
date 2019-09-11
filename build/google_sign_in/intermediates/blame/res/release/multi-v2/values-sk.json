@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/values-sk/values-sk.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/google_sign_in/intermediates/res/merged/release/values-sk/values-sk.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-sk/values.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/incremental/mergeReleaseResources/merged.dir/values-sk/values-sk.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/google_sign_in/intermediates/incremental/mergeReleaseResources/merged.dir/values-sk/values-sk.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-sk/values.xml",

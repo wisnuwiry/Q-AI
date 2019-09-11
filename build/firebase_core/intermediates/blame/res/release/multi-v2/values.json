@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/firebase_core/intermediates/res/merged/release/values/values.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/firebase_core/intermediates/res/merged/release/values/values.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/values/values.xml",
@@ -78,7 +78,7 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/1b7b8ae2fe517d24de3e6442bad58a1c/res/values/values.xml",
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values/values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
@@ -97,7 +97,7 @@
             ]
         },
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/firebase_core/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/firebase_core/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/media-1.0.0-rc01.aar/7f0ca4c7e4ca4ba27262d496d8285b42/res/values/values.xml",
@@ -174,7 +174,7 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/1b7b8ae2fe517d24de3e6442bad58a1c/res/values/values.xml",
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values/values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",

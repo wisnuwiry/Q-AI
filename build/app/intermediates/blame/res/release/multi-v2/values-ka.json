@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values-ka/values-ka.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/values-ka/values.xml",
@@ -21,23 +21,6 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/1b7b8ae2fe517d24de3e6442bad58a1c/res/values-ka/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1273",
-                        "endColumns": "201",
-                        "endOffsets": "1470"
-                    }
-                },
-                {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/values-ka/values-ka.xml",
                     "from": {
                         "startLines": "2",
@@ -52,6 +35,23 @@
                         "startOffsets": "2814",
                         "endColumns": "100",
                         "endOffsets": "2910"
+                    }
+                },
+                {
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-ka/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1273",
+                        "endColumns": "201",
+                        "endOffsets": "1470"
                     }
                 }
             ]

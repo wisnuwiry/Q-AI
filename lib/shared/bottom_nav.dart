@@ -16,7 +16,6 @@ class AppBottomNav extends StatelessWidget {
             icon: Icon(FontAwesomeIcons.userCircle, size: 20),
             title: Text('Profile')),
       ].toList(),
-      fixedColor: Colors.deepPurple[200],
       onTap: (int idx) {
         switch (idx) {
           case 0:

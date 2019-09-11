@@ -1,4 +1,4 @@
-io.flutter.plugins.firebase.cloudfirestore
+io.flutter.plugins.firebase.firestore
 attr alpha
 attr buttonSize
 attr circleCrop

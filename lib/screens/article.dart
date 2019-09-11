@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:qai/screens/article_detail.dart';
+import 'package:qai/shared/loader.dart';
 import 'package:qai/shared/shared.dart';
 
 class ArticleScreen extends StatefulWidget {
@@ -8,21 +10,11 @@ class ArticleScreen extends StatefulWidget {
 }
 
 class _ArticleScreenState extends State<ArticleScreen> {
-  Firestore _firestore = Firestore.instance;
-  List<DocumentSnapshot> _article = [];
-  bool _loadingArticle = true;
-  int _perPage = 10;
+  Firestore _db = Firestore.instance;
 
-  getArticle() async {
-    Query q = _firestore.collection('article').limit(_perPage);
-    setState(() {
-      _loadingArticle = true;
-    });
-    QuerySnapshot querySnapshot = await q.getDocuments();
-    _article = querySnapshot.documents;
-    setState(() {
-      _loadingArticle = false;
-    });
+  Future getArticle() async {
+    QuerySnapshot qn = await _db.collection('article').getDocuments();
+    return qn.documents;
   }
 
   @override
@@ -31,31 +23,40 @@ class _ArticleScreenState extends State<ArticleScreen> {
     getArticle();
   }
 
+  navigateToDetail(DocumentSnapshot article) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ArticleDetailScreen(article: article)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Article'),),
-      body: _loadingArticle == true
-          ? Container(
-              child: Center(
-                child: Loader(),
-              ),
-            )
-          : Container(
-              child: _article.length == 0
-                  ? Center(
-                      child: Text('No Article'),
-                    )
-                  : ListView.builder(
-                      itemCount: _article.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                          contentPadding: EdgeInsets.all(20),
-                          title: Text(_article[index]['title']),
-                        );
-                      },
+        appBar: AppBar(
+          title: Text('Article'),
+        ),
+        body: Container(
+          child: FutureBuilder(
+              future: getArticle(),
+              builder: (_, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: Loader(
+                      size: 60,
                     ),
-            ),
-    );
+                  );
+                } else {
+                  return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (_, index) {
+                        return ListTile(
+                          title: Text(snapshot.data[index]['title'].toString()),
+                          onTap: () => navigateToDetail(snapshot.data[index]),
+                        );
+                      });
+                }
+              }),
+        ));
   }
 }

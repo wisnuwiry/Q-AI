@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "merged": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
         "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "merged": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
         "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/color/common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "merged": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
         "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/color/common_google_signin_btn_tint.xml"
     }
 ]

@@ -132,7 +132,7 @@ class CongratsPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Divider(),
-          Image.asset('assets/congrats.gif'),
+          Text("Congrats", style: TextStyle(fontSize: 30),),
           Divider(),
           FlatButton.icon(
             color: Colors.green,

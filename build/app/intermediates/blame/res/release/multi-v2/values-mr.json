@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values-mr/values-mr.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values-mr/values-mr.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-base-16.0.1.aar/1eb07ea1ddc252bac66fd9454800031a/res/values-mr/values.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.2.0.aar/1b7b8ae2fe517d24de3e6442bad58a1c/res/values-mr/values.xml",
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-mr/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

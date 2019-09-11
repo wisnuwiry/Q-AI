@@ -26,6 +26,7 @@ attr layout_keyline
 attr scopeUris
 attr statusBarBackground
 attr ttcIndex
+color bg
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -92,6 +93,7 @@ drawable common_google_signin_btn_text_light_normal_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable launch_background
+drawable logo
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

@@ -34,7 +34,7 @@ class MaterialTheme extends StatelessWidget {
       routes: {
         '/': (context) => LoginScreen(),
         '/topics': (context) => TopicsScreen(),
-        '/article': (context)  => ArticleScreen(),
+        '/article': (context) => ArticleScreen(),
         '/profile': (context) => ProfileScreen(),
         '/about': (context) => AboutScreen(),
       },

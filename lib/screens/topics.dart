@@ -1,15 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qai/bloc/theme.dart';
+import 'package:qai/shared/behavior.dart';
 import '../services/services.dart';
 import '../shared/shared.dart';
 import '../screens/screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopicsScreen extends StatelessWidget {
+  final AuthService auth = AuthService();
   @override
   Widget build(BuildContext context) {
     ThemeChanger theme = Provider.of<ThemeChanger>(context);
+    FirebaseUser user = Provider.of<FirebaseUser>(context);
 
     return FutureBuilder(
       future: Global.topicsRef.getData(),
@@ -17,31 +21,63 @@ class TopicsScreen extends StatelessWidget {
         if (snap.hasData) {
           List<Topic> topics = snap.data;
           return Scaffold(
-            appBar: AppBar(
-              title: Text('Topics'),
-              actions: [
-                if (theme.getTheme == ThemeData.light())
-                  IconButton(
-                    icon: Icon(FontAwesomeIcons.moon, color: Colors.white),
-                    onPressed: () => theme.setTheme(ThemeData.dark()),
-                  )
-                else
-                  IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.sun,
-                      color: Colors.white,
-                    ),
-                    onPressed: () => theme.setTheme(ThemeData.light()),
-                  )
-              ],
-            ),
-            drawer: TopicDrawer(topics: snap.data),
-            body: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20.0),
-              crossAxisSpacing: 10.0,
-              crossAxisCount: 2,
-              children: topics.map((topic) => TopicItem(topic: topic)).toList(),
+            body: ScrollConfiguration(
+              behavior: MyBehavior(),
+              child: NestedScrollView(
+                headerSliverBuilder: (context, scrolled) {
+                  return <Widget>[
+                    SliverAppBar(
+                      expandedHeight: 200.0,
+                      floating: true,
+                      pinned: true,
+                      flexibleSpace: FlexibleSpaceBar(
+                        title: Text('Welcome ${user.displayName}'),
+                      ),
+                      actions: <Widget>[
+                        if (theme.getTheme == ThemeData.light())
+                          IconButton(
+                            icon: Icon(FontAwesomeIcons.moon,
+                                color: Colors.white),
+                            onPressed: () => theme.setTheme(ThemeData.dark()),
+                          )
+                        else
+                          IconButton(
+                            icon: Icon(
+                              FontAwesomeIcons.sun,
+                              color: Colors.white,
+                            ),
+                            onPressed: () => theme.setTheme(ThemeData.light()),
+                          )
+                      ],
+                    )
+                  ];
+                },
+                body: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text('Quiz', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      ),
+                      GridView.count(
+                        primary: false,
+                        shrinkWrap: true,
+                        crossAxisSpacing: 10.0,
+                        crossAxisCount: 2,
+                        padding: const EdgeInsets.all(10),
+                        physics: NeverScrollableScrollPhysics(),
+                        children:
+                            topics.map((topic) => TopicItem(topic: topic)).toList(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
             bottomNavigationBar: AppBottomNav(),
           );
@@ -130,7 +166,8 @@ class TopicScreen extends StatelessWidget {
       body: ListView(children: [
         Hero(
           tag: topic.img,
-          child: ImgPlaceholder(img: topic.img, width: MediaQuery.of(context).size.width),
+          child: ImgPlaceholder(
+              img: topic.img, width: MediaQuery.of(context).size.width),
         ),
         Text(
           topic.title,
@@ -184,44 +221,9 @@ class QuizList extends StatelessWidget {
   }
 }
 
-class TopicDrawer extends StatelessWidget {
-  final List<Topic> topics;
-  TopicDrawer({Key key, this.topics});
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView.separated(
-          shrinkWrap: true,
-          itemCount: topics.length,
-          itemBuilder: (BuildContext context, int idx) {
-            Topic topic = topics[idx];
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 10, left: 10),
-                  child: Text(
-                    topic.title,
-                    // textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                QuizList(topic: topic)
-              ],
-            );
-          },
-          separatorBuilder: (BuildContext context, int idx) => Divider()),
-    );
-  }
-}
-
 class ImgPlaceholder extends StatelessWidget {
-  String img;
-  double width;
+  final String img;
+  final double width;
   ImgPlaceholder({this.img, this.width});
   @override
   Widget build(BuildContext context) {

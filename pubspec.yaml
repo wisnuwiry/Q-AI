@@ -30,6 +30,7 @@ dependencies:
   rxdart:
   provider:
   font_awesome_flutter:
+  connectivity: ^0.4.4
 
 dev_dependencies:
   flutter_test:

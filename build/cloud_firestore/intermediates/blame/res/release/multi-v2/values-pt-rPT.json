@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/incremental/mergeReleaseResources/merged.dir/values-pt-rPT/values-pt-rPT.xml",
             "map": [
+                {
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-pt-rPT/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1294",
+                        "endColumns": "203",
+                        "endOffsets": "1493"
+                    }
+                },
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
@@ -18,23 +35,6 @@
                         "startOffsets": "2928",
                         "endColumns": "100",
                         "endOffsets": "3024"
-                    }
-                },
-                {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-pt-rPT/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1294",
-                        "endColumns": "203",
-                        "endOffsets": "1493"
                     }
                 },
                 {
@@ -57,8 +57,25 @@
             ]
         },
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/cloud_firestore/intermediates/res/merged/release/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/cloud_firestore/intermediates/res/merged/release/values-pt-rPT/values-pt-rPT.xml",
             "map": [
+                {
+                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.0.1.aar/1426e28951754e387ec5917f2561ff5c/res/values-pt-rPT/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1294",
+                        "endColumns": "203",
+                        "endOffsets": "1493"
+                    }
+                },
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/values-pt-rPT/values-pt-rPT.xml",
                     "from": {
@@ -74,23 +91,6 @@
                         "startOffsets": "2928",
                         "endColumns": "100",
                         "endOffsets": "3024"
-                    }
-                },
-                {
-                    "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/jetified-play-services-basement-16.1.0.aar/de817b7072891563cf954bba85092a4a/res/values-pt-rPT/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1294",
-                        "endColumns": "203",
-                        "endOffsets": "1493"
                     }
                 },
                 {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/incremental/mergeReleaseResources/merged.dir/values-th/values-th.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/google_sign_in/intermediates/res/merged/release/values-th/values-th.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/values-th/values-th.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/home/wisnusaputra/Desktop/hhhh/qai/build/google_sign_in/intermediates/res/merged/release/values-th/values-th.xml",
+            "outputFile": "/home/wisnusaputra/Desktop/hhhh/Q-AI/build/google_sign_in/intermediates/incremental/mergeReleaseResources/merged.dir/values-th/values-th.xml",
             "map": [
                 {
                     "source": "/home/wisnusaputra/.gradle/caches/transforms-1/files-1.1/core-1.0.0-rc01.aar/0152f9848f3e0e3b2dcd85cf73022d8c/res/values-th/values-th.xml",

@@ -324,24 +324,25 @@ public final class R {
     public static final int ttcIndex=0x7f01001a;
   }
   public static final class color {
-    public static final int common_google_signin_btn_text_dark=0x7f020000;
-    public static final int common_google_signin_btn_text_dark_default=0x7f020001;
-    public static final int common_google_signin_btn_text_dark_disabled=0x7f020002;
-    public static final int common_google_signin_btn_text_dark_focused=0x7f020003;
-    public static final int common_google_signin_btn_text_dark_pressed=0x7f020004;
-    public static final int common_google_signin_btn_text_light=0x7f020005;
-    public static final int common_google_signin_btn_text_light_default=0x7f020006;
-    public static final int common_google_signin_btn_text_light_disabled=0x7f020007;
-    public static final int common_google_signin_btn_text_light_focused=0x7f020008;
-    public static final int common_google_signin_btn_text_light_pressed=0x7f020009;
-    public static final int common_google_signin_btn_tint=0x7f02000a;
-    public static final int notification_action_color_filter=0x7f02000b;
-    public static final int notification_icon_bg_color=0x7f02000c;
-    public static final int notification_material_background_media_default_color=0x7f02000d;
-    public static final int primary_text_default_material_dark=0x7f02000e;
-    public static final int ripple_material_light=0x7f02000f;
-    public static final int secondary_text_default_material_dark=0x7f020010;
-    public static final int secondary_text_default_material_light=0x7f020011;
+    public static final int bg=0x7f020000;
+    public static final int common_google_signin_btn_text_dark=0x7f020001;
+    public static final int common_google_signin_btn_text_dark_default=0x7f020002;
+    public static final int common_google_signin_btn_text_dark_disabled=0x7f020003;
+    public static final int common_google_signin_btn_text_dark_focused=0x7f020004;
+    public static final int common_google_signin_btn_text_dark_pressed=0x7f020005;
+    public static final int common_google_signin_btn_text_light=0x7f020006;
+    public static final int common_google_signin_btn_text_light_default=0x7f020007;
+    public static final int common_google_signin_btn_text_light_disabled=0x7f020008;
+    public static final int common_google_signin_btn_text_light_focused=0x7f020009;
+    public static final int common_google_signin_btn_text_light_pressed=0x7f02000a;
+    public static final int common_google_signin_btn_tint=0x7f02000b;
+    public static final int notification_action_color_filter=0x7f02000c;
+    public static final int notification_icon_bg_color=0x7f02000d;
+    public static final int notification_material_background_media_default_color=0x7f02000e;
+    public static final int primary_text_default_material_dark=0x7f02000f;
+    public static final int ripple_material_light=0x7f020010;
+    public static final int secondary_text_default_material_dark=0x7f020011;
+    public static final int secondary_text_default_material_light=0x7f020012;
   }
   public static final class dimen {
     public static final int compat_button_inset_horizontal_material=0x7f030000;
@@ -394,18 +395,19 @@ public final class R {
     public static final int googleg_disabled_color_18=0x7f040013;
     public static final int googleg_standard_color_18=0x7f040014;
     public static final int launch_background=0x7f040015;
-    public static final int notification_action_background=0x7f040016;
-    public static final int notification_bg=0x7f040017;
-    public static final int notification_bg_low=0x7f040018;
-    public static final int notification_bg_low_normal=0x7f040019;
-    public static final int notification_bg_low_pressed=0x7f04001a;
-    public static final int notification_bg_normal=0x7f04001b;
-    public static final int notification_bg_normal_pressed=0x7f04001c;
-    public static final int notification_icon_background=0x7f04001d;
-    public static final int notification_template_icon_bg=0x7f04001e;
-    public static final int notification_template_icon_low_bg=0x7f04001f;
-    public static final int notification_tile_bg=0x7f040020;
-    public static final int notify_panel_notification_icon_bg=0x7f040021;
+    public static final int logo=0x7f040016;
+    public static final int notification_action_background=0x7f040017;
+    public static final int notification_bg=0x7f040018;
+    public static final int notification_bg_low=0x7f040019;
+    public static final int notification_bg_low_normal=0x7f04001a;
+    public static final int notification_bg_low_pressed=0x7f04001b;
+    public static final int notification_bg_normal=0x7f04001c;
+    public static final int notification_bg_normal_pressed=0x7f04001d;
+    public static final int notification_icon_background=0x7f04001e;
+    public static final int notification_template_icon_bg=0x7f04001f;
+    public static final int notification_template_icon_low_bg=0x7f040020;
+    public static final int notification_tile_bg=0x7f040021;
+    public static final int notify_panel_notification_icon_bg=0x7f040022;
   }
   public static final class id {
     public static final int action0=0x7f050000;
