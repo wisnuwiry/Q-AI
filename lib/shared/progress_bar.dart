@@ -22,7 +22,7 @@ class AnimatedProgressbar extends StatelessWidget {
               Container(
                 height: height,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).buttonColor.withOpacity(0.2),
                   borderRadius: BorderRadius.all(
                     Radius.circular(height),
                   ),
@@ -93,7 +93,7 @@ class TopicProgress extends StatelessWidget {
         _progressCount(report, topic),
         Expanded(
           child: AnimatedProgressbar(
-              value: _calculateProgress(topic, report), height: 8),
+              value: _calculateProgress(topic, report), height: 20),
         ),
       ],
     );
@@ -105,7 +105,7 @@ class TopicProgress extends StatelessWidget {
         padding: const EdgeInsets.only(left: 8),
         child: Text(
           '${report.topics[topic.id]?.length ?? 0} / ${topic?.quizzes?.length ?? 0}',
-          style: TextStyle(fontSize: 10, color: Colors.grey),
+          style: TextStyle(fontSize: 20, color: Colors.grey),
         ),
       );
     } else {

@@ -1,2 +1,0 @@
-# Referenced at /home/wisnusaputra/Desktop/hhhh/Q-AI/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:21
--keep class io.flutter.app.FlutterApplication { <init>(...); }

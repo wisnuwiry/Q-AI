@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qai/shared/behavior.dart';
 import '../services/services.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,30 +25,42 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF44A8B2),
       body: Container(
-        padding: EdgeInsets.all(30),
-        decoration: BoxDecoration(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FlutterLogo(
-              size: 150,
-            ),
-            Text(
-              'Login to Start',
-              style: Theme.of(context).textTheme.headline,
-              textAlign: TextAlign.center,
-            ),
-            Text('Your Tagline'),
-            LoginButton(
-              text: 'LOGIN WITH GOOGLE',
-              icon: FontAwesomeIcons.google,
-              color: Colors.black45,
-              loginMethod: auth.googleSignIn,
-            ),
-            LoginButton(text: 'Continue as Guest', loginMethod: auth.anonLogin)
-          ],
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/bg.png'), fit: BoxFit.cover)
+        ),
+        child: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: ListView(
+            padding: EdgeInsets.all(30),
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'assets/logo.png',
+                    width: 250,
+                  ),
+                  Image.asset(
+                    'assets/text.png',
+                    width: 250,
+                  ),
+                  SizedBox(height: 50),
+                  LoginButton(
+                    color: Theme.of(context).backgroundColor,
+                    text: 'LOGIN WITH GOOGLE',
+                    icon: FontAwesomeIcons.google,
+                    loginMethod: auth.googleSignIn,
+                  ),
+                  LoginButton(
+                    color: Color(0xFF42a5f5),
+                      text: 'Continue as Guest', loginMethod: auth.anonLogin)
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -68,18 +81,21 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
-      child: FlatButton.icon(
-        padding: EdgeInsets.all(30),
-        icon: Icon(icon, color: Colors.white),
-        color: color,
-        onPressed: () async {
-          var user = await loginMethod();
-          if (user != null) {
-            Navigator.pushReplacementNamed(context, '/topics');
-          }
-        },
-        label: Expanded(
-          child: Text('$text', textAlign: TextAlign.center),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: FlatButton.icon(
+          padding: EdgeInsets.all(30),
+          icon: Icon(icon, color: Theme.of(context).iconTheme.color),
+          color: color,
+          onPressed: () async {
+            var user = await loginMethod();
+            if (user != null) {
+              Navigator.pushReplacementNamed(context, '/topics');
+            }
+          },
+          label: Expanded(
+            child: Text('$text', textAlign: TextAlign.center),
+          ),
         ),
       ),
     );

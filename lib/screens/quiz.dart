@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qai/screens/login.dart';
 import '../shared/shared.dart';
 import '../services/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -52,7 +53,10 @@ class QuizScreen extends StatelessWidget {
             Quiz quiz = snap.data;
             return Scaffold(
               appBar: AppBar(
-                title: AnimatedProgressbar(value: state.progress, height: 30,),
+                title: AnimatedProgressbar(
+                  value: state.progress,
+                  height: 30,
+                ),
                 leading: IconButton(
                   icon: Icon(FontAwesomeIcons.times),
                   onPressed: () => Navigator.pop(context),
@@ -99,16 +103,11 @@ class StartPage extends StatelessWidget {
           Text(quiz.title, style: Theme.of(context).textTheme.headline),
           Divider(),
           Expanded(child: Text(quiz.description)),
-          ButtonBar(
-            alignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton.icon(
-                onPressed: state.nextPage,
-                label: Text('Start Quiz!'),
-                icon: Icon(Icons.poll),
-                color: Colors.green,
-              )
-            ],
+          LoginButton(
+            loginMethod: state.nextPage,
+            text: 'Mulai Quiz',
+            icon: Icons.poll,
+            color: Theme.of(context).cardColor,
           )
         ],
       ),
@@ -132,7 +131,10 @@ class CongratsPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           Divider(),
-          Text("Congrats", style: TextStyle(fontSize: 30),),
+          Text(
+            "Congrats",
+            style: TextStyle(fontSize: 30),
+          ),
           Divider(),
           FlatButton.icon(
             color: Colors.green,
@@ -192,7 +194,10 @@ class QuestionPage extends StatelessWidget {
               return Container(
                 height: 90,
                 margin: EdgeInsets.only(bottom: 10),
-                color: Colors.black26,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Theme.of(context).cardColor,
+                ),
                 child: InkWell(
                   onTap: () {
                     state.selected = opt;
@@ -202,11 +207,6 @@ class QuestionPage extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     child: Row(
                       children: [
-                        Icon(
-                            state.selected == opt
-                                ? FontAwesomeIcons.checkCircle
-                                : FontAwesomeIcons.circle,
-                            size: 30),
                         Expanded(
                           child: Container(
                             margin: EdgeInsets.only(left: 16),
@@ -215,7 +215,12 @@ class QuestionPage extends StatelessWidget {
                               style: Theme.of(context).textTheme.body2,
                             ),
                           ),
-                        )
+                        ),
+                        Icon(
+                            state.selected == opt
+                                ? FontAwesomeIcons.checkCircle
+                                : FontAwesomeIcons.circle,
+                            size: 30),
                       ],
                     ),
                   ),

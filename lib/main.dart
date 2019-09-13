@@ -16,14 +16,28 @@ class MyApp extends StatelessWidget {
         StreamProvider<FirebaseUser>.value(value: AuthService().user),
       ],
       child: ChangeNotifierProvider<ThemeChanger>(
-        builder: (_) => ThemeChanger(ThemeData.dark()),
+        builder: (_) => ThemeChanger(ThemeStatus.DARK),
         child: MaterialTheme(),
       ),
     );
   }
 }
 
-class MaterialTheme extends StatelessWidget {
+class MaterialTheme extends StatefulWidget {
+  @override
+  _MaterialThemeState createState() => _MaterialThemeState();
+}
+
+class _MaterialThemeState extends State<MaterialTheme> {
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      ThemeChanger theme = Provider.of<ThemeChanger>(context);
+      theme.setTheme(ThemeStatus.DARK);
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeChanger theme = Provider.of<ThemeChanger>(context);

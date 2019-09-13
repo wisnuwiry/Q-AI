@@ -4,7 +4,8 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('about'), backgroundColor: Colors.blue),
+      backgroundColor: Theme.of(context).backgroundColor,
+      appBar: AppBar(title: Text('about')),
       body: SingleChildScrollView(
         child: Container(
           constraints: BoxConstraints.expand(height: MediaQuery.of(context).size.height - 80),

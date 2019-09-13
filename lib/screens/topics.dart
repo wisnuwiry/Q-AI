@@ -21,24 +21,31 @@ class TopicsScreen extends StatelessWidget {
         if (snap.hasData) {
           List<Topic> topics = snap.data;
           return Scaffold(
+            backgroundColor: Theme.of(context).cardColor,
             body: ScrollConfiguration(
-              behavior: MyBehavior(),
-              child: NestedScrollView(
-                headerSliverBuilder: (context, scrolled) {
-                  return <Widget>[
+                behavior: MyBehavior(),
+                child: CustomScrollView(
+                  slivers: <Widget>[
                     SliverAppBar(
+                      backgroundColor: Theme.of(context).appBarTheme.color,
                       expandedHeight: 200.0,
                       floating: true,
                       pinned: true,
                       flexibleSpace: FlexibleSpaceBar(
-                        title: Text('Welcome ${user.displayName}'),
+                        background: Image.asset('assets/bg.png', fit: BoxFit.cover,),
+                        centerTitle: true,
+                        title: Container(
+                          // color: Colors.amber,
+                          child: Center(
+                            child: Image.asset('assets/text.png', fit: BoxFit.contain, width: MediaQuery.of(context).size.width/4,)),
+                        ),
                       ),
                       actions: <Widget>[
-                        if (theme.getTheme == ThemeData.light())
+                        if (theme.getThemeStatus == ThemeStatus.LIGHT)
                           IconButton(
                             icon: Icon(FontAwesomeIcons.moon,
                                 color: Colors.white),
-                            onPressed: () => theme.setTheme(ThemeData.dark()),
+                            onPressed: () => theme.setTheme(ThemeStatus.DARK),
                           )
                         else
                           IconButton(
@@ -46,39 +53,51 @@ class TopicsScreen extends StatelessWidget {
                               FontAwesomeIcons.sun,
                               color: Colors.white,
                             ),
-                            onPressed: () => theme.setTheme(ThemeData.light()),
+                            onPressed: () => theme.setTheme(ThemeStatus.LIGHT),
                           )
                       ],
+                    ),
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        Container(
+                          color: Theme.of(context).appBarTheme.color,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20)),
+                                color: Theme.of(context).backgroundColor),
+                            child: Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 20.0),
+                                  child: Text(
+                                    'Topic',
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                Divider(),
+                                ListView(
+                                  primary: true,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  children: topics
+                                      .map((topic) => TopicItem(topic: topic))
+                                      .toList(),
+                                ),
+                                Padding(padding: EdgeInsets.only(bottom: 40),)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ]),
                     )
-                  ];
-                },
-                body: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text('Quiz', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                      ),
-                      GridView.count(
-                        primary: false,
-                        shrinkWrap: true,
-                        crossAxisSpacing: 10.0,
-                        crossAxisCount: 2,
-                        padding: const EdgeInsets.all(10),
-                        physics: NeverScrollableScrollPhysics(),
-                        children:
-                            topics.map((topic) => TopicItem(topic: topic)).toList(),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+                  ],
+                )),
             bottomNavigationBar: AppBottomNav(),
           );
         } else {
@@ -98,52 +117,40 @@ class TopicItem extends StatelessWidget {
     return Container(
       child: Hero(
         tag: topic.img,
-        child: Card(
-          clipBehavior: Clip.antiAlias,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => TopicScreen(topic: topic),
-                ),
-              );
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (topic.img != 'default.png')
-                  FadeInImage.assetNetwork(
-                    image: topic.img,
-                    placeholder: 'assets/covers/default.png',
-                    fit: BoxFit.contain,
-                  )
-                else
-                  Image.asset(
-                    'assets/covers/default.png',
-                    fit: BoxFit.contain,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        TopicScreen(topic: topic),
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        child: Text(
-                          topic.title,
-                          style: TextStyle(
-                              height: 1.5, fontWeight: FontWeight.bold),
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
-                        ),
-                      ),
+                );
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (topic.img != 'default.png')
+                    FadeInImage.assetNetwork(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      image: topic.img,
+                      placeholder: 'assets/covers/default.png',
+                      fit: BoxFit.cover,
+                    )
+                  else
+                    Image.asset(
+                      'assets/covers/default.png',
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.cover,
                     ),
-                    // Text(topic.description)
-                  ],
-                ),
-                // )
-                TopicProgress(topic: topic),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -154,28 +161,56 @@ class TopicItem extends StatelessWidget {
 
 class TopicScreen extends StatelessWidget {
   final Topic topic;
-
   TopicScreen({this.topic});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
+      body: ScrollConfiguration(
+        behavior: MyBehavior(),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              leading: BackButton(),
+              expandedHeight: 250.0,
+              floating: true,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Hero(
+                  tag: topic.img,
+                  child: ImgPlaceholder(
+                    img: topic.img,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                ),
+                title: Text('Welcome '),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        topic.title,
+                        style: TextStyle(
+                            height: 2,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      TopicProgress(
+                        topic: topic,
+                      ),
+                      QuizList(topic: topic)
+                    ],
+                  ),
+                ),
+              ]),
+            )
+          ],
+        ),
       ),
-      body: ListView(children: [
-        Hero(
-          tag: topic.img,
-          child: ImgPlaceholder(
-              img: topic.img, width: MediaQuery.of(context).size.width),
-        ),
-        Text(
-          topic.title,
-          style:
-              TextStyle(height: 2, fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        QuizList(topic: topic)
-      ]),
     );
   }
 }
@@ -189,8 +224,9 @@ class QuizList extends StatelessWidget {
     return Column(
         children: topic.quizzes.map((quiz) {
       return Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        elevation: 0,
+        color: Theme.of(context).cardColor,
         margin: EdgeInsets.all(4),
         child: InkWell(
           onTap: () {
@@ -231,13 +267,13 @@ class ImgPlaceholder extends StatelessWidget {
       return FadeInImage.assetNetwork(
         image: img,
         placeholder: 'assets/covers/default.png',
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
         width: width,
       );
     } else {
       return Image.asset(
         'assets/covers/default.png',
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
         width: width,
       );
     }

@@ -10,7 +10,7 @@ class Loader extends StatelessWidget {
       width: size ?? 60,
       height: size ?? 60,
       child: SpinKitChasingDots(
-        color: Color(0xff26de81),
+        color: Color(0xFF44A8B2),
         size: size ?? 50,
       ),
     );
