@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qai/bloc/theme.dart';
@@ -6,14 +5,12 @@ import 'package:qai/shared/behavior.dart';
 import '../services/services.dart';
 import '../shared/shared.dart';
 import '../screens/screens.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopicsScreen extends StatelessWidget {
   final AuthService auth = AuthService();
   @override
   Widget build(BuildContext context) {
     ThemeChanger theme = Provider.of<ThemeChanger>(context);
-    FirebaseUser user = Provider.of<FirebaseUser>(context);
 
     return FutureBuilder(
       future: Global.topicsRef.getData(),
@@ -21,7 +18,7 @@ class TopicsScreen extends StatelessWidget {
         if (snap.hasData) {
           List<Topic> topics = snap.data;
           return Scaffold(
-            backgroundColor: Theme.of(context).cardColor,
+            backgroundColor: Theme.of(context).backgroundColor,
             body: ScrollConfiguration(
                 behavior: MyBehavior(),
                 child: CustomScrollView(
@@ -43,14 +40,14 @@ class TopicsScreen extends StatelessWidget {
                       actions: <Widget>[
                         if (theme.getThemeStatus == ThemeStatus.LIGHT)
                           IconButton(
-                            icon: Icon(FontAwesomeIcons.moon,
+                            icon: Icon(Icons.brightness_2,
                                 color: Colors.white),
                             onPressed: () => theme.setTheme(ThemeStatus.DARK),
                           )
                         else
                           IconButton(
                             icon: Icon(
-                              FontAwesomeIcons.sun,
+                              Icons.brightness_7,
                               color: Colors.white,
                             ),
                             onPressed: () => theme.setTheme(ThemeStatus.LIGHT),
@@ -98,7 +95,6 @@ class TopicsScreen extends StatelessWidget {
                     )
                   ],
                 )),
-            bottomNavigationBar: AppBottomNav(),
           );
         } else {
           return LoadingScreen();
@@ -115,42 +111,49 @@ class TopicItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Hero(
-        tag: topic.img,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(25),
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        TopicScreen(topic: topic),
-                  ),
-                );
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  if (topic.img != 'default.png')
-                    FadeInImage.assetNetwork(
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      image: topic.img,
-                      placeholder: 'assets/covers/default.png',
-                      fit: BoxFit.cover,
-                    )
-                  else
-                    Image.asset(
-                      'assets/covers/default.png',
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.cover,
-                    ),
-                ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+        child: InkWell(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    TopicScreen(topic: topic),
               ),
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: Theme.of(context).cardColor),
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(25.0)
+            ),
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (topic.img != 'default.png') ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: FadeInImage.assetNetwork(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  image: topic.img,
+                  placeholder: 'assets/topic.png',
+                  fit: BoxFit.cover,
+                ),
+                ) else ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset(
+                  'assets/topic.png',
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                ),
+                ),
+              Divider(),
+              Center(child: Text(topic.title,style: Theme.of(context).textTheme.title,))
+            ],
             ),
           ),
         ),
@@ -166,6 +169,7 @@ class TopicScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ScrollConfiguration(
         behavior: MyBehavior(),
         child: CustomScrollView(
@@ -183,7 +187,7 @@ class TopicScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                   ),
                 ),
-                title: Text('Welcome '),
+                title: Text(topic.title),
               ),
             ),
             SliverList(
@@ -192,15 +196,12 @@ class TopicScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        topic.title,
-                        style: TextStyle(
-                            height: 2,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      TopicProgress(
-                        topic: topic,
+                      topic.description != null ? Text(topic.description, style: TextStyle(fontSize: 20),): Container(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: TopicProgress(
+                          topic: topic,
+                        ),
                       ),
                       QuizList(topic: topic)
                     ],
@@ -266,13 +267,13 @@ class ImgPlaceholder extends StatelessWidget {
     if (img != 'default.png') {
       return FadeInImage.assetNetwork(
         image: img,
-        placeholder: 'assets/covers/default.png',
+        placeholder: 'assets/topic.png',
         fit: BoxFit.cover,
         width: width,
       );
     } else {
       return Image.asset(
-        'assets/covers/default.png',
+        'assets/topic.png',
         fit: BoxFit.cover,
         width: width,
       );

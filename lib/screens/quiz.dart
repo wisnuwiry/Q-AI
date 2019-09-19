@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qai/screens/login.dart';
 import '../shared/shared.dart';
@@ -52,6 +53,7 @@ class QuizScreen extends StatelessWidget {
           } else {
             Quiz quiz = snap.data;
             return Scaffold(
+              backgroundColor: Theme.of(context).backgroundColor,
               appBar: AppBar(
                 title: AnimatedProgressbar(
                   value: state.progress,
@@ -126,29 +128,68 @@ class CongratsPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Congrats! You completed the ${quiz.title} quiz',
-            textAlign: TextAlign.center,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Text(
+              "Congrats",
+              style: TextStyle(fontSize: 40),
+            ),
           ),
-          Divider(),
-          Text(
-            "Congrats",
-            style: TextStyle(fontSize: 30),
+          Container(
+            width: MediaQuery.of(context).size.width - 50,
+            padding: EdgeInsets.symmetric(vertical: 36, horizontal: 16),
+            height: 300,
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 10,
+                  color: Colors.black12,
+                  offset: Offset(1, 5),
+                  spreadRadius: 1
+                )
+              ]
+            ),
+            child: Column(
+              children: <Widget>[
+                Text('YEAHH!',style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Image.asset('assets/staron.png', fit: BoxFit.fitWidth, width: MediaQuery.of(context).size.width/4,),
+                    Image.asset('assets/staron.png', fit: BoxFit.fitWidth, width: MediaQuery.of(context).size.width/4,),
+                    Image.asset('assets/staron.png', fit: BoxFit.fitWidth, width: MediaQuery.of(context).size.width/4,),
+                  ],
+                )
+              ],
+            ),
           ),
-          Divider(),
-          FlatButton.icon(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Text(
+              'Complete Quiz \"${quiz.title}\"',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 25),
+            ),
+          ),
+
+
+          Spacer(),
+          LoginButton(
+            icon: FontAwesomeIcons.check,
+            text: 'Complete',
             color: Colors.green,
-            icon: Icon(FontAwesomeIcons.check),
-            label: Text(' Mark Complete!'),
-            onPressed: () {
+            loginMethod: (){
               _updateUserReport(quiz);
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                '/topics',
+                '/home',
                 (route) => false,
               );
             },
-          )
+          ),
         ],
       ),
     );
@@ -181,9 +222,14 @@ class QuestionPage extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
+            margin: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16), 
+              color: Theme.of(context).cardColor,
+              ),
             padding: EdgeInsets.all(16),
             alignment: Alignment.center,
-            child: Text(question.text),
+            child: Text(question.text, style: Theme.of(context).textTheme.display1,),
           ),
         ),
         Container(
@@ -241,28 +287,21 @@ class QuestionPage extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 250,
+          height: 350,
           padding: EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(correct ? 'Good Job!' : 'Wrong'),
+              Text(correct ? 'Benar!' : 'Salah!',style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
               Text(
-                opt.detail,
-                style: TextStyle(fontSize: 18, color: Colors.white54),
+                '\t'+opt.detail,
+                style: TextStyle(fontSize: 18, ),
               ),
-              FlatButton(
+              CupertinoButton(
                 color: correct ? Colors.green : Colors.red,
-                child: Text(
-                  correct ? 'Onward!' : 'Try Again',
-                  style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 1.5,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onPressed: () {
+                child: Text(correct ? 'Lanjut!' : 'Coba Lagi' , style: Theme.of(context).textTheme.title,),
+                onPressed: (){
                   if (correct) {
                     state.nextPage();
                   }

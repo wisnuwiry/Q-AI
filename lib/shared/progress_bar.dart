@@ -34,7 +34,7 @@ class AnimatedProgressbar extends StatelessWidget {
                 height: height,
                 width: box.maxWidth * _floor(value),
                 decoration: BoxDecoration(
-                  color: _colorGen(value),
+                  color: Colors.white,
                   borderRadius: BorderRadius.all(
                     Radius.circular(height),
                   ),
@@ -52,10 +52,6 @@ class AnimatedProgressbar extends StatelessWidget {
     return value.sign <= min ? min : value;
   }
 
-  _colorGen(double value) {
-    int rbg = (value * 255).toInt();
-    return Colors.deepOrange.withGreen(rbg).withRed(255 - rbg);
-  }
 }
 
 class QuizBadge extends StatelessWidget {

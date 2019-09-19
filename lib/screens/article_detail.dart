@@ -1,11 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_html_view/flutter_html_view.dart';
+import 'package:provider/provider.dart';
+import 'package:qai/bloc/theme.dart';
+import 'package:qai/screens/screens.dart';
 import 'package:qai/shared/behavior.dart';
 import 'package:qai/shared/shared.dart';
 
 class ArticleDetailScreen extends StatefulWidget {
   final DocumentSnapshot article;
+
   ArticleDetailScreen({this.article});
 
   @override
@@ -18,7 +22,6 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
   Future getContent() async {
     var document =
         await _db.document('content/${widget.article.data['content']}').get();
-        print(document.data['content']);
     return document;
   }
 
@@ -29,11 +32,11 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
         height: 250.0,
         fit: BoxFit.cover,
         image: img,
-        placeholder: 'assets/covers/default.png',
+        placeholder: 'assets/article.png',
       );
     } else {
       return Image.asset(
-        'assets/covers/default.png',
+        'assets/article.png',
         width: MediaQuery.of(context).size.width,
         height: 250.0,
         fit: BoxFit.cover,
@@ -46,8 +49,10 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
     getContent();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
+    ThemeChanger theme = Provider.of<ThemeChanger>(context);
     return Scaffold(
       body: FutureBuilder(
         future: getContent(),
@@ -73,6 +78,21 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                     flexibleSpace: FlexibleSpaceBar(
                       background: cover(widget.article.data['cover']),
                     ),
+                    actions: <Widget>[
+                      if (theme.getThemeStatus == ThemeStatus.LIGHT)
+                        IconButton(
+                          icon: Icon(Icons.brightness_2, color: Colors.white),
+                          onPressed: () => theme.setTheme(ThemeStatus.DARK),
+                        )
+                      else
+                        IconButton(
+                          icon: Icon(
+                            Icons.brightness_7,
+                            color: Colors.white,
+                          ),
+                          onPressed: () => theme.setTheme(ThemeStatus.LIGHT),
+                        )
+                    ],
                   ),
                   SliverList(
                     delegate: SliverChildListDelegate([
@@ -83,11 +103,20 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                             child: Text(
                               widget.article.data['title'],
                               style: TextStyle(
-                                  fontSize: 35.0, fontWeight: FontWeight.bold),
+                                  fontSize: 25.0, fontWeight: FontWeight.bold),
                             ),
                           ),
                           Divider(),
-                          MarkdownBody(data: snapshot.data['content'],)
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: HtmlView(
+                              data: snapshot.data['content'],
+                              scrollable: false,
+                              onLaunchFail: () {
+                                return Text('Failed Load...');
+                              },
+                            ),
+                          )
                         ],
                       )
                     ]),
@@ -97,6 +126,13 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             );
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CreateArticle()));
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

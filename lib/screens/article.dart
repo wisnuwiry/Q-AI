@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:qai/bloc/theme.dart';
 import 'package:qai/screens/article_detail.dart';
 import 'package:qai/shared/behavior.dart';
 import 'package:qai/shared/loader.dart';
@@ -35,7 +33,6 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeChanger theme = Provider.of<ThemeChanger>(context);
     return Scaffold(
         appBar: AppBar(
           title: Text('Article'),
@@ -67,10 +64,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 8.0, horizontal: 10),
-                                  color:
-                                      theme.getThemeStatus == ThemeStatus.LIGHT
-                                          ? Color(0xFFd5e0e0)
-                                          : Theme.of(context).cardColor,
+                                  color: Theme.of(context).cardColor,
                                   child: Row(
                                     children: <Widget>[
                                       cover(snapshot.data[index]['cover']),
@@ -146,14 +140,14 @@ class _ArticleScreenState extends State<ArticleScreen> {
           height: 164.0,
           fit: BoxFit.cover,
           image: img,
-          placeholder: 'assets/covers/default.png',
+          placeholder: 'assets/article.png',
         ),
       );
     } else {
       return ClipRRect(
           borderRadius: BorderRadius.circular(15.0),
           child: Image.asset(
-            'assets/covers/default.png',
+            'assets/article.png',
             width: MediaQuery.of(context).size.width / 3,
             height: 164.0,
             fit: BoxFit.cover,

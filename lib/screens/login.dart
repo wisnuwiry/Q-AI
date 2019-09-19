@@ -16,7 +16,7 @@ class LoginScreenState extends State<LoginScreen> {
     auth.getUser.then(
       (user) {
         if (user != null) {
-          Navigator.pushReplacementNamed(context, '/topics');
+          Navigator.pushReplacementNamed(context, '/home');
         }
       },
     );
@@ -54,6 +54,7 @@ class LoginScreenState extends State<LoginScreen> {
                     icon: FontAwesomeIcons.google,
                     loginMethod: auth.googleSignIn,
                   ),
+                  Padding(padding: EdgeInsets.only(top: 30)),
                   LoginButton(
                     color: Color(0xFF42a5f5),
                       text: 'Continue as Guest', loginMethod: auth.anonLogin)
@@ -90,7 +91,7 @@ class LoginButton extends StatelessWidget {
           onPressed: () async {
             var user = await loginMethod();
             if (user != null) {
-              Navigator.pushReplacementNamed(context, '/topics');
+              Navigator.pushReplacementNamed(context, '/home');
             }
           },
           label: Expanded(

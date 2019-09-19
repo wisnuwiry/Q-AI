@@ -11,7 +11,9 @@ class ThemeChanger with ChangeNotifier {
   ThemeData dark = ThemeData.dark().copyWith(
     cardColor: Colors.grey[700],
     appBarTheme: AppBarTheme(color: Colors.black45),
-    primaryColor: Color(0xFF44A8B2)
+    primaryColor: Color(0xFF44A8B2),
+    backgroundColor: Color(0xFF303030),
+    accentColor: Color(0xFF44A8B2)
   );
 
   ThemeData light = ThemeData.light().copyWith(
@@ -19,6 +21,7 @@ class ThemeChanger with ChangeNotifier {
     appBarTheme: AppBarTheme(color: Color(0xFF44A8B2)),
     backgroundColor: Color(0xffd5e0e0),
     primaryColor: Color(0xFF44A8B2),
+    scaffoldBackgroundColor: Color(0xffd5e0e0)
     
   );
 

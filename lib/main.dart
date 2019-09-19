@@ -33,7 +33,7 @@ class _MaterialThemeState extends State<MaterialTheme> {
   void initState() {
     Future.delayed(Duration.zero, () {
       ThemeChanger theme = Provider.of<ThemeChanger>(context);
-      theme.setTheme(ThemeStatus.DARK);
+      theme.setTheme(ThemeStatus.LIGHT);
     });
     super.initState();
   }
@@ -47,9 +47,7 @@ class _MaterialThemeState extends State<MaterialTheme> {
       // Named Routes
       routes: {
         '/': (context) => LoginScreen(),
-        '/topics': (context) => TopicsScreen(),
-        '/article': (context) => ArticleScreen(),
-        '/profile': (context) => ProfileScreen(),
+        '/home': (context) => HomeScreen(),
         '/about': (context) => AboutScreen(),
       },
     );

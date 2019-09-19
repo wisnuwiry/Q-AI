@@ -1,4 +1,9 @@
 cloud_firestore=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.10.1/
 firebase_auth=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.9.0/
 firebase_core=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.3.4/
+flutter_custom_tabs=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_custom_tabs-0.6.0/
 google_sign_in=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-4.0.7/
+path_provider=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-0.5.0+1/
+sqflite=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+4/
+url_launcher=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.1.3/
+video_player=/home/wisnusaputra/Dev/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-0.10.0+2/
