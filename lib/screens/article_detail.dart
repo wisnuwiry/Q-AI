@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:provider/provider.dart';
 import 'package:qai/bloc/theme.dart';
-import 'package:qai/screens/screens.dart';
 import 'package:qai/shared/behavior.dart';
 import 'package:qai/shared/shared.dart';
 
@@ -126,13 +125,6 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             );
           }
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CreateArticle()));
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

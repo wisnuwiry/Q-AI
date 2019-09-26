@@ -5,4 +5,3 @@ export 'profile.dart';
 export 'about.dart';
 export 'article.dart';
 export 'home.dart';
-export 'create_article.dart';
