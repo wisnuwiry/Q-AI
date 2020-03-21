@@ -29,8 +29,8 @@ class LoginScreenState extends State<LoginScreen> {
       backgroundColor: Color(0xFF44A8B2),
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/bg.png'), fit: BoxFit.cover)
-        ),
+            image: DecorationImage(
+                image: AssetImage('assets/bg.png'), fit: BoxFit.cover)),
         child: ScrollConfiguration(
           behavior: MyBehavior(),
           child: ListView(
@@ -38,27 +38,32 @@ class LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'assets/logo.png',
-                    width: 250,
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.65,
+                    child: Column(children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        width: 250,
+                        height: 200,
+                      ),
+                      Image.asset(
+                        'assets/text.png',
+                        width: 100,
+                      ),
+                    ]),
                   ),
-                  Image.asset(
-                    'assets/text.png',
-                    width: 250,
-                  ),
-                  SizedBox(height: 50),
                   LoginButton(
                     color: Theme.of(context).backgroundColor,
                     text: 'LOGIN WITH GOOGLE',
                     icon: FontAwesomeIcons.google,
                     loginMethod: auth.googleSignIn,
                   ),
-                  Padding(padding: EdgeInsets.only(top: 30)),
+                  Padding(padding: EdgeInsets.only(top: 10)),
                   LoginButton(
-                    color: Color(0xFF42a5f5),
-                      text: 'Continue as Guest', loginMethod: auth.anonLogin)
+                      color: Color(0xFF42a5f5),
+                      text: 'Continue as Guest',
+                      loginMethod: auth.anonLogin)
                 ],
               ),
             ],
@@ -86,7 +91,7 @@ class LoginButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: FlatButton.icon(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.all(20),
           icon: Icon(icon, color: Theme.of(context).iconTheme.color),
           color: color,
           onPressed: () async {

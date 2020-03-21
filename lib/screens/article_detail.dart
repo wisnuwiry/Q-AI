@@ -111,10 +111,9 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                           Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Html(
-                                data: snapshot.data,
+                                data: snapshot.data['content'],
                                 //Optional parameters:
                                 padding: EdgeInsets.all(8.0),
-                                backgroundColor: Colors.white70,
                                 defaultTextStyle:
                                     TextStyle(fontFamily: 'serif'),
                                 linkStyle: const TextStyle(
@@ -132,6 +131,18 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                                   if (node is dom.Element) {
                                     switch (node.localName) {
                                       case "p":
+                                        return baseStyle.merge(
+                                            TextStyle(height: 2, fontSize: 20));
+                                      case "b":
+                                        return baseStyle.merge(
+                                            TextStyle(height: 2, fontSize: 20, fontWeight: FontWeight.bold));
+                                      case "span":
+                                        return baseStyle.merge(
+                                            TextStyle(height: 2, fontSize: 17));
+                                      case "i":
+                                        return baseStyle.merge(
+                                            TextStyle(height: 2, fontSize: 17, fontStyle: FontStyle.italic));
+                                      case "li":
                                         return baseStyle.merge(
                                             TextStyle(height: 2, fontSize: 20));
                                     }

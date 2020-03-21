@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:qai/screens/article_detail.dart';
-import 'package:qai/shared/behavior.dart';
-import 'package:qai/shared/loader.dart';
-import 'package:qai/shared/shared.dart';
+
+import '../shared/loader.dart';
+import '../shared/shared.dart';
+import 'article_detail.dart';
 
 class ArticleScreen extends StatefulWidget {
   @override
@@ -48,84 +48,82 @@ class _ArticleScreenState extends State<ArticleScreen> {
                     ),
                   );
                 } else {
-                  return ScrollConfiguration(
-                    behavior: MyBehavior(),
-                    child: ListView.builder(
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (_, index) {
-                          return GestureDetector(
-                            onTap: () => navigateToDetail(snapshot.data[index]),
-                            child: Container(
-                              height: 200.0,
-                              width: MediaQuery.of(context).size.width,
-                              margin: EdgeInsets.all(8),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 8.0, horizontal: 10),
-                                  color: Theme.of(context).cardColor,
-                                  child: Row(
-                                    children: <Widget>[
-                                      cover(snapshot.data[index]['cover']),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10),
-                                      ),
+                  return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      physics: BouncingScrollPhysics(),
+                      itemBuilder: (_, index) {
+                        return GestureDetector(
+                          onTap: () => navigateToDetail(snapshot.data[index]),
+                          child: Container(
+                            height: 200.0,
+                            width: MediaQuery.of(context).size.width,
+                            margin: EdgeInsets.all(8),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8.0, horizontal: 10),
+                                color: Theme.of(context).cardColor,
+                                child: Row(
+                                  children: <Widget>[
+                                    cover(snapshot.data[index]['cover']),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 10),
+                                    ),
 
-                                      Container(
-                                        height: 164.0,
-                                        width: (MediaQuery.of(context)
-                                                    .size
-                                                    .width -
-                                                50) -
-                                            MediaQuery.of(context).size.width /
-                                                3,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              snapshot.data[index]['title']
-                                                  .toString(),
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .title
-                                                    .color,
-                                              ),
-                                              softWrap: true,
-                                              maxLines: 2,
+                                    Container(
+                                      height: 164.0,
+                                      width: (MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              50) -
+                                          MediaQuery.of(context).size.width /
+                                              3,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            snapshot.data[index]['title']
+                                                .toString(),
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .title
+                                                  .color,
                                             ),
-                                            Spacer(),
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                      .backgroundColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          15)),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 15,
-                                                        horizontal: 20),
-                                                child: Text('Baca..'),
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                            softWrap: true,
+                                            maxLines: 2,
+                                          ),
+                                          Spacer(),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                color: Theme.of(context)
+                                                    .backgroundColor,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        15)),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 15,
+                                                      horizontal: 20),
+                                              child: Text('Baca Selengkapnya'),
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                      // Spacer(),
-                                    ],
-                                  ),
+                                    ),
+                                    // Spacer(),
+                                  ],
                                 ),
                               ),
                             ),
-                          );
-                        }),
-                  );
+                          ),
+                        );
+                      });
                 }
               }),
         ));
