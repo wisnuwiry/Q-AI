@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 import '../services/services.dart';
 import '../shared/shared.dart';
-import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   final AuthService auth = AuthService();

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qai/bloc/theme.dart';
-import 'package:qai/shared/behavior.dart';
-import '../services/services.dart';
-import '../shared/shared.dart';
+
+import '../bloc/theme.dart';
 import '../screens/screens.dart';
+import '../services/services.dart';
+import '../shared/behavior.dart';
+import '../shared/shared.dart';
 
 class TopicsScreen extends StatelessWidget {
   final AuthService auth = AuthService();

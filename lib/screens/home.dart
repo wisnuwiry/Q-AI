@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qai/screens/screens.dart';
+
+import 'screens.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

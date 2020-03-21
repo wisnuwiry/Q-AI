@@ -30,8 +30,9 @@ dependencies:
   rxdart:
   provider:
   font_awesome_flutter:
-  flutter_html_view: ^0.5.12
+  flutter_html: ^0.11.1
   flutter_launcher_icons: "^0.7.3"
+  webview_flutter:
 
 flutter_icons:
   ios: true

@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html_view/flutter_html_view.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:html/dom.dart' as dom;
 import 'package:provider/provider.dart';
-import 'package:qai/bloc/theme.dart';
-import 'package:qai/shared/behavior.dart';
-import 'package:qai/shared/shared.dart';
+
+import '../bloc/theme.dart';
+import '../shared/behavior.dart';
+import '../shared/shared.dart';
 
 class ArticleDetailScreen extends StatefulWidget {
   final DocumentSnapshot article;
@@ -107,15 +109,36 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
                           ),
                           Divider(),
                           Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: HtmlView(
-                              data: snapshot.data['content'],
-                              scrollable: false,
-                              onLaunchFail: () {
-                                return Text('Failed Load...');
-                              },
-                            ),
-                          )
+                              padding: const EdgeInsets.all(15.0),
+                              child: Html(
+                                data: snapshot.data,
+                                //Optional parameters:
+                                padding: EdgeInsets.all(8.0),
+                                backgroundColor: Colors.white70,
+                                defaultTextStyle:
+                                    TextStyle(fontFamily: 'serif'),
+                                linkStyle: const TextStyle(
+                                  color: Colors.redAccent,
+                                ),
+                                onLinkTap: (url) {
+                                  // open url in a webview
+                                },
+                                onImageTap: (src) {
+                                  // Display the image in large form.
+                                },
+                                //Must have useRichText set to false for this to work.
+                                customTextStyle:
+                                    (dom.Node node, TextStyle baseStyle) {
+                                  if (node is dom.Element) {
+                                    switch (node.localName) {
+                                      case "p":
+                                        return baseStyle.merge(
+                                            TextStyle(height: 2, fontSize: 20));
+                                    }
+                                  }
+                                  return baseStyle;
+                                },
+                              ))
                         ],
                       )
                     ]),
